@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            text-align: center;
+            background: url('Cover Ai.webp') no-repeat center center/cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 50px auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            min-height: Auto;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #763aad;
+            font-size: 24px;
+        }
+
+        .chat-box {
+            width: 97%;
+            height: 300px;
+            background: #14021a8f;
+            border: 2px solid #9b59b6;
+            border-radius: 10px;
+            padding: 10px;
+            overflow-y: auto;
+            text-align: left;
+            margin-bottom: 20px;
+
+        }
+
+        .chat-message {
+            background: #333;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px 0;
+            max-width: 80%;
+            color: white;
+            word-wrap: break-word;
+        }
+
+        .user {
+            background: rgba(138, 43, 226, 0.2);
+            text-align: right;
+            margin-left: 20%;
+        }
+
+        .bot {
+            background: rgba(255, 255, 255, 0.1);
+            margin-right: 20%;
+
+        }
+
+
+        textarea,
+        select,
+        button {
+            width: 97%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 16px;
+            border: 2px solid #9b59b6;
+            border-radius: 5px;
+            background: #1c0525;
+            color: white;
+            transition: all 0.3s ease;
+            resize: none;
+        }
+
+        textarea:focus,
+        select:focus,
+        button:focus {
+            border-color: #6d3394;
+            outline: none;
+        }
+
+        button {
+            background: #9b59b6;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #6d3394;
+        }
+
+        .loading {
+            display: none;
+            color: #9b59b6;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .animate__animated {
+            animation-duration: 1s;
+        }
+    </style>
+</head>
+
+<body class="main">
+    <script src="../java/script.js"></script>
+    <div class="hamburger">&#9776;</div>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo"></h2>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="CONTACT.html">CONTACT</a></li>
+                    <li><a href="chatbot.html">ChatBOT</a></li>
+                    <li><a href="CODING.html">CODING</a></li>
+                    <li><a href="SERVICE.html">SERVICE</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="../HOME.html">HOME</a></li>   
+          
+                   </ul>
+
+            </nav>
+
+
+        </div>
+        <div class="container">
+            <h2>AI Chatbot </h2>
+            <div class="chat-box" id="chatBox">
+                <div class="chat-message bot animate__animated animate__fadeIn">مرحبًا! كيف يمكنني مساعدتك؟</div>
+            </div>
+            <form id="chatForm">
+                <textarea id="userInput" placeholder="اكتب رسالتك هنا..." required></textarea>
+                <select id="language" required>
+                    <option value="" disabled selected>اختر لغة البرمجة</option>
+                    <option value="C++">C++</option>
+                    <option value="Java">Java</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Python">Python</option>
+                </select>
+                <select id="lang" required>
+                    <option value="" disabled selected>اختر اللغة</option>
+                    <option value="English">اللغة الإنجليزية</option>
+                    <option value="Arabic">اللغة العربية</option>
+                </select>
+                <button type="submit">إرسال الرسالة</button>
+            </form>
+            <div class="loading" id="loading">جاري التحميل...</div>
+        </div>
+
+        <script>
+            const chatBox = document.getElementById('chatBox');
+            const chatForm = document.getElementById('chatForm');
+            const userInput = document.getElementById('userInput');
+            const loading = document.getElementById('loading');
+
+            chatForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const message = userInput.value.trim();
+
+                if (message !== '') {
+
+                    const userDiv = document.createElement('div');
+                    userDiv.className = 'chat-message user animate__animated animate__fadeInRight';
+                    userDiv.textContent = message;
+                    chatBox.appendChild(userDiv);
+
+
+                    loading.style.display = 'block';
+
+
+                    setTimeout(() => {
+                        const botDiv = document.createElement('div');
+                        botDiv.className = 'chat-message bot animate__animated animate__fadeInLeft';
+                        botDiv.textContent = getBotResponse(message);
+                        chatBox.appendChild(botDiv);
+
+
+                        loading.style.display = 'none';
+
+
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    }, 1500);
+
+                    userInput.value = '';
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }
+            });
+
+
+            function getBotResponse(message) {
+                const selectedLang = document.getElementById('lang').value;
+                message = message.toLowerCase();
+
+                if (selectedLang === 'English') {
+                    if (message.includes('hello') || message.includes('hi')) {
+                        return 'Hello! How can I assist you?';
+                    } else if (message.includes('how are you')) {
+                        return 'I\'m doing well, thank you for asking! How can I help you?';
+                    } else if (message.includes('bye')) {
+                        return 'Goodbye! Have a great day!';
+                    } else if (message.includes('help')) {
+                        return 'I can help you with information about our services, coding assistance, or general queries. What would you like to know?';
+                    } else if (message.includes('what is javascript')) {
+                        return 'JavaScript is a programming language that enables interactive web pages. It\'s essential for web development!';
+                    } else if (message.includes('python')) {
+                        return 'Python is a popular programming language known for its simplicity and readability. It\'s great for beginners!';
+                    } else if (message.includes('html')) {
+                        return 'HTML (HyperText Markup Language) is the standard markup language for creating web pages and web applications.';
+                    } else if (message.includes('css')) {
+                        return 'CSS (Cascading Style Sheets) is used to style and layout web pages - like colors, fonts, spacing, and more.';
+                    } else if (message.includes('thank')) {
+                        return 'You\'re welcome! Let me know if you need anything else!';
+                    } else {
+                        return 'I\'m still learning. Could you please rephrase your question?';
+                    }
+                } else if (selectedLang === 'Arabic') {
+                    if (message.includes('مرحبا') || message.includes('اهلا')) {
+                        return 'مرحباً! كيف يمكنني مساعدتك؟';
+                    } else if (message.includes('كيف حالك')) {
+                        return 'أنا بخير، شكراً لسؤالك! كيف يمكنني مساعدتك؟';
+                    } else if (message.includes('وداعا') || message.includes('مع السلامة')) {
+                        return 'وداعاً! أتمنى لك يوماً سعيداً!';
+                    } else if (message.includes('مساعدة')) {
+                        return 'يمكنني مساعدتك في الحصول على معلومات حول خدماتنا، أو تقديم مساعدة برمجية. ما الذي تحتاجه؟';
+                    } else if (message.includes('جافا سكريبت')) {
+                        return 'جافا سكريبت هي لغة برمجة تمكن صفحات الويب التفاعلية. إنها ضرورية لتطوير الويب!';
+                    } else if (message.includes('بايثون')) {
+                        return 'بايثون هي لغة برمجة شائعة تُعرف ببساطتها وسهولة قراءتها. إنها رائعة للمبتدئين!';
+                    } else if (message.includes('شكرا')) {
+                        return 'على الرحب والسعة! لا تتردد في طلب المزيد من المساعدة.';
+                    } else {
+                        return 'أنا ما زلت أتعلم. هل يمكنك إعادة صياغة سؤالك؟';
+                    }
+                }
+            }
+
+        </script>
+
+</body>
+
+</html>

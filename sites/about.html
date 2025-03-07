@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+    <style data-styles="">
+        ion-icon {
+            visibility: hidden
+        }
+
+        .hydrated {
+            visibility: inherit
+        }
+    </style>
+    <title>Ai Web-based Coding</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+        data-stencil-namespace="ionicons"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+        data-stencil-namespace="ionicons">
+        </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style data-styles="">
+        ion-icon {
+            visibility: hidden
+        }
+
+        .hydrated {
+            visibility: inherit
+        }
+    </style>
+
+<body class="main">
+    <script src="../java/script.js"></script>
+    <style>
+        .icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 7px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .buttons {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: #3a1b5c;
+        }
+
+        button {
+            background-color: #1f0a33;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .content {
+            display: none;
+            font-size: 22px;
+            line-height: 1.9;
+            text-align: center;
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* تغيير حجم العناوين */
+        h1 {
+            font-size: 36px;
+        }
+    </style>
+    <style type="text/css" id="operaUserStyle"></style>
+    </head>
+    <div class="hamburger">&#9776;</div>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo"></h2>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../HOME.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="SERVICE.html">SERVICE</a></li>
+                    <li><a href="CODING.html">CODING</a></li>
+                    <li><a href="chatbot.html">ChatBOT</a></li>
+                    <li><a href="CONTACT.html">CONTACT</a></li>
+                </ul>
+
+            </nav>
+
+
+        </div>
+
+        <div class="buttons">
+            <button onclick="changeLanguage('arabic')">العربية</button>
+            <button onclick="changeLanguage('english')">English</button>
+            <button onclick="changeLanguage('french')">Français</button>
+        </div>
+
+        <div class="container">
+            <!-- اللغة الإنجليزية -->
+            <div id="english" class="content active">
+                <h1>What We Offer</h1>
+                <p><strong>Coding Made Simple:</strong> Even if you don't know how to write code, we help you turn your
+                    ideas into ready-to-use code.</p>
+                <p><strong>Advanced AI:</strong> A smart chat that understands your coding needs and suggests optimal
+                    solutions, transforming user requirements into high-quality, functional code with minimal effort.
+                </p>
+                <p><strong>Support for All Languages:</strong> Python, JavaScript, PHP, C++, HTML and more!</p>
+
+                <h1>Key Benefits</h1>
+                <p><strong>Full Customization:</strong> Tailor your web projects to your exact specifications.</p>
+                <p><strong>Seamless Compatibility:</strong> Ensure your code works perfectly across all devices.</p>
+                <p><strong>Automated Error Correction:</strong> Quickly identify and fix issues, improving development
+                    speed.</p>
+
+                <h1>Why Ai Web-based Coding?</h1>
+                <p><strong>For Beginners:</strong> We make programming easy. Just describe what you want, and we will
+                    automatically generate the code for you.</p>
+                <p><strong>For Developers:</strong> Save your time with a smart chat that quickly solves your
+                    programming issues, simplifying web development and making it accessible and efficient.</p>
+                <p><strong>For Problem Solvers:</strong> Get precise answers and simple explanations to all your coding
+                    questions, making web development user-friendly, even for those with limited technical expertise.
+                </p>
+            </div>
+
+            <!-- اللغة العربية -->
+            <div id="arabic" class="content">
+                <h1>ما الذي نقدمه؟</h1>
+                <p><strong>برمجة سهلة:</strong> حتى إذا كنت لا تعرف كيفية كتابة الكود، نساعدك في تحويل أفكارك إلى كود
+                    جاهز للاستخدام.</p>
+                <p><strong>ذكاء اصطناعي متقدم:</strong> دردشة ذكية تفهم احتياجاتك البرمجية وتقترح الحلول المثلى، مما
+                    يحول متطلبات المستخدم إلى كود عالي الجودة بأقل جهد.</p>
+                <p><strong>دعم لجميع اللغات:</strong> Python، JavaScript، PHP، C++، HTML والمزيد!</p>
+
+                <h1>الفوائد الرئيسية</h1>
+                <p><strong>تخصيص كامل:</strong> قم بتخصيص مشاريع الويب الخاصة بك وفقًا لمواصفاتك الدقيقة.</p>
+                <p><strong>التوافق السلس:</strong> تأكد من أن الكود يعمل بشكل مثالي عبر جميع الأجهزة.</p>
+                <p><strong>تصحيح الأخطاء التلقائي:</strong> حدد المشكلات بسرعة وقم بإصلاحها، مما يحسن سرعة التطوير.</p>
+
+                <h1>لماذا Ai Web-based Coding؟</h1>
+                <p><strong>للمبتدئين:</strong> نحن نجعل البرمجة سهلة. فقط قم بوصف ما تريده، وسنقوم تلقائيًا بإنشاء الكود
+                    لك.</p>
+                <p><strong>للمطورين:</strong> وفر وقتك مع دردشة ذكية تحل مشاكلك البرمجية بسرعة، مما يبسط تطوير الويب
+                    ويجعله أكثر وصولًا وكفاءة.</p>
+                <p><strong>للمحللين:</strong> احصل على إجابات دقيقة وشرح بسيط لجميع أسئلتك البرمجية، مما يجعل تطوير
+                    الويب سهل الفهم، حتى لأولئك الذين لديهم معرفة تقنية محدودة.</p>
+            </div>
+
+            <!-- اللغة الفرنسية -->
+            <div id="french" class="content">
+                <h1>Ce que nous offrons</h1>
+                <p><strong>Programmation simplifiée :</strong> Même si vous ne savez pas coder, nous vous aidons à
+                    transformer vos idées en code prêt à l'emploi.</p>
+                <p><strong>IA avancée :</strong> Un chat intelligent qui comprend vos besoins en programmation et
+                    propose des solutions optimales.</p>
+                <p><strong>Support pour toutes les langues :</strong> Python, JavaScript, PHP, C++, HTML et bien plus !
+                </p>
+
+                <h1>Avantages clés</h1>
+                <p><strong>Personnalisation complète :</strong> Adaptez vos projets web à vos spécifications exactes.
+                </p>
+                <p><strong>Compatibilité fluide :</strong> Assurez-vous que votre code fonctionne parfaitement sur tous
+                    les appareils.</p>
+                <p><strong>Correction automatique des erreurs :</strong> Identifiez et corrigez rapidement les
+                    problèmes, améliorant ainsi la vitesse de développement.</p>
+
+                <h1>Pourquoi Ai Web-based Coding ?</h1>
+                <p><strong>Pour les débutants :</strong> Nous rendons la programmation facile. Décrivez simplement ce
+                    que vous voulez, et nous générerons automatiquement le code pour vous.</p>
+                <p><strong>Pour les développeurs :</strong> Gagnez du temps avec un chat intelligent qui résout
+                    rapidement vos problèmes de programmation, simplifiant ainsi le développement web et le rendant
+                    accessible et efficace.</p>
+                <p><strong>Pour les résolveurs de problèmes :</strong> Obtenez des réponses précises et des explications
+                    simples à toutes vos questions de programmation, rendant le développement web accessible même pour
+                    ceux qui ont peu de connaissances techniques.</p>
+
+            </div>
+        </div>
+        <script>
+            function changeLanguage(language) {
+                document.querySelectorAll('.content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(language).classList.add('active');
+            }
+        </script>
+
+</body>
+
+</html>
